@@ -87,18 +87,20 @@ class ITetrimino:
 
                 if self.is_collision_bottom(tetrimino.y):
                     collision = True
-
-                    if self.cycle_timer.measure(CYCLE_TIME - 0.2):
-                        self.is_fixed = True
             
-            if not collision:
+            if collision:
+                if self.cycle_timer.measure(CYCLE_TIME - 0.2):
+                    self.is_fixed = True
+
+            else:
                 self.y += BLOCK_HEIGHT
                 self.number_of_moving_down += 1
+
     
     # 衝突していなければ、右へ移動することができる
     # 一度テトリミノが固定されてしまったら、右へ移動することはできなくなる
     def move_right(self, tetrimino_list):
-        if self.x < RIGHT and not self.is_fixed:
+        if not self.is_fixed:
 
             collision = False
             for tetrimino in tetrimino_list:
@@ -112,7 +114,7 @@ class ITetrimino:
     # 衝突していなければ、左へ移動することができる
     # 一度テトリミノが固定されてしまったら、左へ移動することはできなくなる
     def move_left(self, tetrimino_list):
-        if self.x > LEFT and not self.is_fixed:
+        if not self.is_fixed:
 
             collision = False
             for tetrimino in tetrimino_list:
@@ -141,18 +143,23 @@ class ITetrimino:
     def is_collision_left(self, x):
         if self.x == x + BLOCK_WIDTH:
             return True
+        elif self.x <= LEFT:
+            return True
         else:
             return False
 
     def is_collision_right(self, x):
         if self.x + BLOCK_WIDTH == x:
             return True
+        elif self.x + ITetrimino.WIDTH >= RIGHT:
+            return True
         else:
             return False
 
     def is_collision_bottom(self, y):
         if self.y + BLOCK_HEIGHT == y:
-
+            return True
+        elif self.y + ITetrimino.HEIGHT >= BOTTOM:
             return True
         else:
             return False
@@ -186,18 +193,20 @@ class OTetrimino:
 
                 if self.is_collision_bottom(tetrimino.y):
                     collision = True
-
-                    if self.cycle_timer.measure(CYCLE_TIME - 0.2):
-                        self.is_fixed = True
             
-            if not collision:
+            if collision:
+                if self.cycle_timer.measure(CYCLE_TIME - 0.2):
+                    self.is_fixed = True
+
+            else:
                 self.y += BLOCK_HEIGHT
                 self.number_of_moving_down += 1
+
     
     # 衝突していなければ、右へ移動することができる
     # 一度テトリミノが固定されてしまったら、右へ移動することはできなくなる
     def move_right(self, tetrimino_list):
-        if self.x < RIGHT and not self.is_fixed:
+        if not self.is_fixed:
 
             collision = False
             for tetrimino in tetrimino_list:
@@ -211,7 +220,7 @@ class OTetrimino:
     # 衝突していなければ、左へ移動することができる
     # 一度テトリミノが固定されてしまったら、左へ移動することはできなくなる
     def move_left(self, tetrimino_list):
-        if self.x > LEFT and not self.is_fixed:
+        if not self.is_fixed:
 
             collision = False
             for tetrimino in tetrimino_list:
@@ -240,18 +249,23 @@ class OTetrimino:
     def is_collision_left(self, x):
         if self.x == x + BLOCK_WIDTH:
             return True
+        elif self.x <= LEFT:
+            return True
         else:
             return False
 
     def is_collision_right(self, x):
         if self.x + BLOCK_WIDTH == x:
             return True
+        elif self.x + OTetrimino.WIDTH >= RIGHT:
+            return True
         else:
             return False
 
     def is_collision_bottom(self, y):
         if self.y + BLOCK_HEIGHT == y:
-
+            return True
+        elif self.y + OTetrimino.HEIGHT >= BOTTOM:
             return True
         else:
             return False
@@ -285,18 +299,20 @@ class TTetrimino:
 
                 if self.is_collision_bottom(tetrimino.y):
                     collision = True
-
-                    if self.cycle_timer.measure(CYCLE_TIME - 0.2):
-                        self.is_fixed = True
             
-            if not collision:
+            if collision:
+                if self.cycle_timer.measure(CYCLE_TIME - 0.2):
+                    self.is_fixed = True
+
+            else:
                 self.y += BLOCK_HEIGHT
                 self.number_of_moving_down += 1
+
     
     # 衝突していなければ、右へ移動することができる
     # 一度テトリミノが固定されてしまったら、右へ移動することはできなくなる
     def move_right(self, tetrimino_list):
-        if self.x < RIGHT and not self.is_fixed:
+        if not self.is_fixed:
 
             collision = False
             for tetrimino in tetrimino_list:
@@ -310,7 +326,7 @@ class TTetrimino:
     # 衝突していなければ、左へ移動することができる
     # 一度テトリミノが固定されてしまったら、左へ移動することはできなくなる
     def move_left(self, tetrimino_list):
-        if self.x > LEFT and not self.is_fixed:
+        if not self.is_fixed:
 
             collision = False
             for tetrimino in tetrimino_list:
@@ -339,18 +355,23 @@ class TTetrimino:
     def is_collision_left(self, x):
         if self.x == x + BLOCK_WIDTH:
             return True
+        elif self.x <= LEFT:
+            return True
         else:
             return False
 
     def is_collision_right(self, x):
         if self.x + BLOCK_WIDTH == x:
             return True
+        elif self.x + TTetrimino.WIDTH >= RIGHT:
+            return True
         else:
             return False
 
     def is_collision_bottom(self, y):
         if self.y + BLOCK_HEIGHT == y:
-
+            return True
+        elif self.y + TTetrimino.HEIGHT >= BOTTOM:
             return True
         else:
             return False
@@ -384,18 +405,20 @@ class JTetrimino:
 
                 if self.is_collision_bottom(tetrimino.y):
                     collision = True
-
-                    if self.cycle_timer.measure(CYCLE_TIME - 0.2):
-                        self.is_fixed = True
             
-            if not collision:
+            if collision:
+                if self.cycle_timer.measure(CYCLE_TIME - 0.2):
+                    self.is_fixed = True
+
+            else:
                 self.y += BLOCK_HEIGHT
                 self.number_of_moving_down += 1
+
     
     # 衝突していなければ、右へ移動することができる
     # 一度テトリミノが固定されてしまったら、右へ移動することはできなくなる
     def move_right(self, tetrimino_list):
-        if self.x < RIGHT and not self.is_fixed:
+        if not self.is_fixed:
 
             collision = False
             for tetrimino in tetrimino_list:
@@ -409,7 +432,7 @@ class JTetrimino:
     # 衝突していなければ、左へ移動することができる
     # 一度テトリミノが固定されてしまったら、左へ移動することはできなくなる
     def move_left(self, tetrimino_list):
-        if self.x > LEFT and not self.is_fixed:
+        if not self.is_fixed:
 
             collision = False
             for tetrimino in tetrimino_list:
@@ -438,18 +461,23 @@ class JTetrimino:
     def is_collision_left(self, x):
         if self.x == x + BLOCK_WIDTH:
             return True
+        elif self.x <= LEFT:
+            return True
         else:
             return False
 
     def is_collision_right(self, x):
         if self.x + BLOCK_WIDTH == x:
             return True
+        elif self.x + JTetrimino.WIDTH >= RIGHT:
+            return True
         else:
             return False
 
     def is_collision_bottom(self, y):
         if self.y + BLOCK_HEIGHT == y:
-
+            return True
+        elif self.y + JTetrimino.HEIGHT >= BOTTOM:
             return True
         else:
             return False
@@ -483,18 +511,20 @@ class LTetrimino:
 
                 if self.is_collision_bottom(tetrimino.y):
                     collision = True
-
-                    if self.cycle_timer.measure(CYCLE_TIME - 0.2):
-                        self.is_fixed = True
             
-            if not collision:
+            if collision:
+                if self.cycle_timer.measure(CYCLE_TIME - 0.2):
+                    self.is_fixed = True
+
+            else:
                 self.y += BLOCK_HEIGHT
                 self.number_of_moving_down += 1
+
     
     # 衝突していなければ、右へ移動することができる
     # 一度テトリミノが固定されてしまったら、右へ移動することはできなくなる
     def move_right(self, tetrimino_list):
-        if self.x < RIGHT and not self.is_fixed:
+        if not self.is_fixed:
 
             collision = False
             for tetrimino in tetrimino_list:
@@ -508,7 +538,7 @@ class LTetrimino:
     # 衝突していなければ、左へ移動することができる
     # 一度テトリミノが固定されてしまったら、左へ移動することはできなくなる
     def move_left(self, tetrimino_list):
-        if self.x > LEFT and not self.is_fixed:
+        if not self.is_fixed:
 
             collision = False
             for tetrimino in tetrimino_list:
@@ -537,30 +567,35 @@ class LTetrimino:
     def is_collision_left(self, x):
         if self.x == x + BLOCK_WIDTH:
             return True
+        elif self.x <= LEFT:
+            return True
         else:
             return False
 
     def is_collision_right(self, x):
         if self.x + BLOCK_WIDTH == x:
             return True
+        elif self.x + LTetrimino.WIDTH >= RIGHT:
+            return True
         else:
             return False
 
     def is_collision_bottom(self, y):
         if self.y + BLOCK_HEIGHT == y:
-
+            return True
+        elif self.y + LTetrimino.HEIGHT >= BOTTOM:
             return True
         else:
             return False
 
-class STetrimono:
+class STetrimino:
 
     WIDTH = BLOCK_WIDTH * 3
     HEIGHT = BLOCK_HEIGHT * 2
 
     def __init__(self, number_of_cycles, cycle_timer):
         self.img = pygame.image.load("Images/STetrimino.png")
-        self.img = pygame.transfrom.scale(self.img, (STetrimono.WIDTH, STetrimono.HEIGHT))
+        self.img = pygame.transfrom.scale(self.img, (STetrimino.WIDTH, STetrimino.HEIGHT))
         self.x = LEFT + BLOCK_WIDTH * 3
         self.y = TOP
         self.cycle_timer = cycle_timer
@@ -582,18 +617,20 @@ class STetrimono:
 
                 if self.is_collision_bottom(tetrimino.y):
                     collision = True
-
-                    if self.cycle_timer.measure(CYCLE_TIME - 0.2):
-                        self.is_fixed = True
             
-            if not collision:
+            if collision:
+                if self.cycle_timer.measure(CYCLE_TIME - 0.2):
+                    self.is_fixed = True
+
+            else:
                 self.y += BLOCK_HEIGHT
                 self.number_of_moving_down += 1
+
     
     # 衝突していなければ、右へ移動することができる
     # 一度テトリミノが固定されてしまったら、右へ移動することはできなくなる
     def move_right(self, tetrimino_list):
-        if self.x < RIGHT and not self.is_fixed:
+        if not self.is_fixed:
 
             collision = False
             for tetrimino in tetrimino_list:
@@ -607,7 +644,7 @@ class STetrimono:
     # 衝突していなければ、左へ移動することができる
     # 一度テトリミノが固定されてしまったら、左へ移動することはできなくなる
     def move_left(self, tetrimino_list):
-        if self.x > LEFT and not self.is_fixed:
+        if not self.is_fixed:
 
             collision = False
             for tetrimino in tetrimino_list:
@@ -636,18 +673,23 @@ class STetrimono:
     def is_collision_left(self, x):
         if self.x == x + BLOCK_WIDTH:
             return True
+        elif self.x <= LEFT:
+            return True
         else:
             return False
 
     def is_collision_right(self, x):
         if self.x + BLOCK_WIDTH == x:
             return True
+        elif self.x + STetrimino.WIDTH >= RIGHT:
+            return True
         else:
             return False
 
     def is_collision_bottom(self, y):
         if self.y + BLOCK_HEIGHT == y:
-
+            return True
+        elif self.y + STetrimino.HEIGHT >= BOTTOM:
             return True
         else:
             return False
@@ -681,18 +723,20 @@ class ZTetrimino:
 
                 if self.is_collision_bottom(tetrimino.y):
                     collision = True
-
-                    if self.cycle_timer.measure(CYCLE_TIME - 0.2):
-                        self.is_fixed = True
             
-            if not collision:
+            if collision:
+                if self.cycle_timer.measure(CYCLE_TIME - 0.2):
+                    self.is_fixed = True
+
+            else:
                 self.y += BLOCK_HEIGHT
                 self.number_of_moving_down += 1
+
     
     # 衝突していなければ、右へ移動することができる
     # 一度テトリミノが固定されてしまったら、右へ移動することはできなくなる
     def move_right(self, tetrimino_list):
-        if self.x < RIGHT and not self.is_fixed:
+        if not self.is_fixed:
 
             collision = False
             for tetrimino in tetrimino_list:
@@ -706,7 +750,7 @@ class ZTetrimino:
     # 衝突していなければ、左へ移動することができる
     # 一度テトリミノが固定されてしまったら、左へ移動することはできなくなる
     def move_left(self, tetrimino_list):
-        if self.x > LEFT and not self.is_fixed:
+        if not self.is_fixed:
 
             collision = False
             for tetrimino in tetrimino_list:
@@ -735,18 +779,23 @@ class ZTetrimino:
     def is_collision_left(self, x):
         if self.x == x + BLOCK_WIDTH:
             return True
+        elif self.x <= LEFT:
+            return True
         else:
             return False
 
     def is_collision_right(self, x):
         if self.x + BLOCK_WIDTH == x:
             return True
+        elif self.x + ZTetrimino.WIDTH >= RIGHT:
+            return True
         else:
             return False
 
     def is_collision_bottom(self, y):
         if self.y + BLOCK_HEIGHT == y:
-
+            return True
+        elif self.y + ZTetrimino.HEIGHT >= BOTTOM:
             return True
         else:
             return False
@@ -775,12 +824,10 @@ def generate_tetrimino(number_of_cycles, cycle_timer):
         l_tetrimino = LTetrimino(number_of_cycles, cycle_timer)
         return l_tetrimino
     elif number == 5:
-        s_tetrimino = STetrimono(number_of_cycles, cycle_timer)
+        s_tetrimino = STetrimino(number_of_cycles, cycle_timer)
         return s_tetrimino
     elif number == 6:
         z_tetrimino = ZTetrimino(number_of_cycles, cycle_timer)
-
-
 
 
 game_scene = "playing_scene"
@@ -834,6 +881,10 @@ while running:
                     
                     elif event.key == pygame.K_RIGHT:
                         tetrimino.move_right(tetrimino_list)
+            
+            # テトリミノを画面に表示させる
+            for tetrimino in tetrimino_list:
+                tetrimino.display()
 
             pygame.display.update()
 
